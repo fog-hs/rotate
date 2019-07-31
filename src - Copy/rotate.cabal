@@ -1,0 +1,40 @@
+name:          rotate
+category:      Language
+version:       0
+license:       BSD2
+license-file:  LICENSE
+cabal-version: 2.0
+author:        Fog
+maintainer:    Fog
+stability:     experimental
+build-type:    Simple
+synopsis:      eg of how to use backpack
+description:   provides two backends providing vector rotation using quaternions 
+
+library
+  default-language: Haskell2010
+  ghc-options: -Wall -O2
+  hs-source-dirs: src
+  signatures: Rotate
+  exposed-modules: TestRotate
+  build-depends: base
+
+-- we have to provide a module in another library that matches the signature 
+library example
+  default-language: Haskell2010
+  hs-source-dirs: example
+  exposed-modules: LinearRotate, VectRotate
+  build-depends: linear, vect
+
+executable linear-rotate
+  default-language: Haskell2010
+  main-is: example/LinearTest.hs
+  build-depends: base, rotate, example
+  mixins: unpacked-containers (TestRotate as Linear.TestRotate) requires (Rotate as LinearRotate)
+
+executable vect-rotate
+  default-language: Haskell2010
+  main-is: example/VectTest.hs
+  build-depends: base, rotate, example
+  mixins: unpacked-containers (TestRotate as Vect.TestRotate) requires (Rotate as VectRotate)
+
