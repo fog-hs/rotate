@@ -6,13 +6,10 @@ to build and run this example, navigate to the directory containing rotate.cabal
 type;
 
 cabal configure 
-
 cabal run rotate-example
 
 the output is;
 
 Running rotate-example...
-
 Vec {unVec = (0.0,-0.9999999403953552,0.0)}
-
 V3 0.0 (-1.0) 2.220446049250313e-16
