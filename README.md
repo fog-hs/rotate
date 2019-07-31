@@ -1,8 +1,7 @@
 # rotate
 eg. backpack use case with variable backends providing quaternion rotation of a vector
 
-to build and run this example, navigate to the directory containing rotate.cabal
-
+to build and run this example, navigate to the directory containing rotate.cabal   
 type;
 
 cabal configure   
